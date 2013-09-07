@@ -61,3 +61,5 @@ end
 def largest_mtrx(a)
   a.map{|x| [largest_vert_product(x), largest_horiz_product(x), largest_diag_product(x)].max}.max
 end
+
+puts largest_mtrx(all_sub_matrices(NUMBERS))
