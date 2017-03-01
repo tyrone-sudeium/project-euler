@@ -1,4 +1,4 @@
-require './18'
+require './0018'
 
 module SixtySeven
   TRIANGLE_STR = <<DATA
