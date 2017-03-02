@@ -10,8 +10,7 @@
 # 
 # Find the maximum total from top to bottom of the triangle below:
 
-module Eighteen
-  TRIANGLE_STR = <<DATA
+TRIANGLE_STR = <<DATA
 75
 95 64
 17 47 82
@@ -29,26 +28,12 @@ module Eighteen
 04 62 98 27 23 09 70 98 73 93 38 53 60 04 23
 DATA
 
-  TRIANGLE = TRIANGLE_STR.lines.map(&:split).map{|a|a.map(&:to_i)}
-end
-
 # NOTE: As there are only 16384 routes, it is possible to solve this problem by
 # trying every route. However, Problem 67, is the same challenge with a
 # triangle containing one-hundred rows; it cannot be solved by brute force, and
 # requires a clever method! ;o)
 
-def maximal_total(t)
-  t = t.reverse
-  t = t.each.with_index do |a,i|
-    next a if i == 0
-    a.each.with_index do |x,j|
-      bl = t[i-1][j]
-      br = t[i-1][j+1]
-      a[j] = [bl,br].max + x
-    end
-    t[i] = a
-  end
-  t.last[0]
-end
+require './maximum_path_sum'
 
-puts maximal_total(Eighteen::TRIANGLE)
+triangle = TRIANGLE_STR.lines.map(&:split).map{|a|a.map(&:to_i)}
+puts maximal_total(triangle)
