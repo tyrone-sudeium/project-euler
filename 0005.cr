@@ -11,4 +11,4 @@ end
 # TODO: Make this faster.
 # I'm sure there's a faster way to do this than checking every twentieth number
 # I just haven't had time to work out the mathematics yet.
-puts (20..Float64::INFINITY).step(20).each.select { |x| has_factors(x.to_i) }.first.to_i
+puts (20..Float64::INFINITY).step(20).select { |x| has_factors(x.to_i) }.first.to_i
