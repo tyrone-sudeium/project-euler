@@ -8,4 +8,4 @@
 # What is the millionth lexicographic permutation of the digits
 # 0, 1, 2, 3, 4, 5, 6, 7, 8 and 9?
 
-puts (0..9).map(&.to_s).permutations(10).map(&.join).sort[999_999]
+puts (0..9).map(&.to_s).each_permutation.map(&.join).skip(999_999).next
